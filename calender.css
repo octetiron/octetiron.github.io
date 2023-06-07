@@ -1,0 +1,23 @@
+table {
+    border: 1px solid black;
+    width: 50%;
+    height: 50vh;
+    border-collapse: collapse;
+}
+
+tr {
+    border: 1px solid black;
+}
+
+th,
+td {
+    border: 1px solid black;
+}
+
+.sun {
+    color: red;
+}
+
+.sat {
+    color: blue;
+}
