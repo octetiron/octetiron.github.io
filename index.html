@@ -2,7 +2,10 @@
 <html lang="ko">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
         <title>Tone Generator</title>
         <style>
             .container {
@@ -25,8 +28,15 @@
                 flex-wrap: wrap;
                 justify-content: center;
             }
-        </style>
-            
+            html,
+            body {
+                -webkit-user-select: none; /* Chrome/Safari/Opera */
+                -moz-user-select: none; /* Firefox */
+                -ms-user-select: none; /* Internet Explorer/Edge */
+                user-select: none; /* Others */
+                margin: 0;
+                padding: 0;
+            }
         </style>
     </head>
     <body>
