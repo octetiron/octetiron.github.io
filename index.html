@@ -2,12 +2,200 @@
 <html lang="ko">
     <head>
         <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>index</title>
-        <link rel="stylesheet" href="calender.css" />
+        <title>Tone Generator</title>
+        <style>
+            .container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+            }
+            .toneButton {
+                width: 100px;
+                height: 100px;
+                margin: 10px;
+                border-radius: 10%;
+                background-color: #eee;
+                font-size: 20px;
+            }
+            .control {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        </style>
+            
+        </style>
     </head>
     <body>
-        <h1>request</h1>
+        <div class="container">
+            <div class="info">
+                <h1>Tone Generator</h1>
+                <h2>Frequency (Hz): 0</h2>
+            </div>
+            <div class="control">
+                <input
+                    type="button"
+                    class="toneButton"
+                    id="tone1"
+                    value="Fire&#10;691Hz"
+                />
+                <input
+                    type="button"
+                    class="toneButton"
+                    id="tone2"
+                    value="Forward&#10;760Hz"
+                />
+                <input
+                    type="button"
+                    class="toneButton"
+                    id="tone3"
+                    value="Backward&#10;853Hz"
+                />
+                <input
+                    type="button"
+                    class="toneButton"
+                    id="tone4"
+                    value="Left&#10;900Hz"
+                />
+                <input
+                    type="button"
+                    class="toneButton"
+                    id="tone5"
+                    value="Right&#10;960Hz"
+                />
+                <input
+                    type="button"
+                    class="toneButton"
+                    id="tone6"
+                    value="Up&#10;1074Hz"
+                />
+                <input
+                    type="button"
+                    class="toneButton"
+                    id="tone7"
+                    value="Down&#10;1125Hz"
+                />
+                <input
+                    type="button"
+                    class="toneButton"
+                    id="tone8"
+                    value="Laser&#10;1280Hz"
+                />
+                <input
+                    type="button"
+                    class="toneButton"
+                    id="tone9"
+                    value="Alt&#10;1566Hz"
+                />
+            </div>
+        </div>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+            integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+        <script>
+            let audioContext;
+            let oscillator;
+            let isPlaying = false;
+            let nowPlaying = 0;
+
+            function startTone(freq) {
+                stopTone();
+                isPlaying = true;
+                nowPlaying = freq;
+                $('.info h2').text('Frequency (Hz): ' + freq);
+                const frequency = parseFloat(freq);
+                audioContext = new (window.AudioContext ||
+                    window.webkitAudioContext)();
+                oscillator = audioContext.createOscillator();
+                oscillator.type = 'sine';
+                oscillator.frequency.setValueAtTime(
+                    frequency,
+                    audioContext.currentTime
+                );
+                oscillator.connect(audioContext.destination);
+                oscillator.start();
+            }
+
+            function stopTone() {
+                isPlaying = false;
+                $('.info h2').text('Frequency (Hz): 0');
+                if (oscillator) {
+                    oscillator.stop();
+                    oscillator.disconnect();
+                }
+                if (audioContext) {
+                    audioContext.close();
+                }
+            }
+            $('#tone1').on('click', function () {
+                if (isPlaying) {
+                    stopTone();
+                } else {
+                    startTone(691);
+                }
+            });
+            $('#tone2').on('click', function () {
+                if (isPlaying) {
+                    stopTone();
+                } else {
+                    startTone(760);
+                }
+            });
+            $('#tone3').on('click', function () {
+                if (isPlaying) {
+                    stopTone();
+                } else {
+                    startTone(853);
+                }
+            });
+            $('#tone4').on('click', function () {
+                if (isPlaying) {
+                    stopTone();
+                } else {
+                    startTone(900);
+                }
+            });
+            $('#tone5').on('click', function () {
+                if (isPlaying) {
+                    stopTone();
+                } else {
+                    startTone(960);
+                }
+            });
+            $('#tone6').on('click', function () {
+                if (isPlaying) {
+                    stopTone();
+                } else {
+                    startTone(1074);
+                }
+            });
+            $('#tone7').on('click', function () {
+                if (isPlaying) {
+                    stopTone();
+                } else {
+                    startTone(1125);
+                }
+            });
+            $('#tone8').on('click', function () {
+                if (isPlaying) {
+                    stopTone();
+                } else {
+                    startTone(1280);
+                }
+            });
+            $('#tone9').on('click', function () {
+                if (isPlaying) {
+                    stopTone();
+                } else {
+                    startTone(1566);
+                }
+            });
+        </script>
     </body>
 </html>
