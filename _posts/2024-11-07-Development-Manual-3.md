@@ -8,7 +8,5 @@ toc: true
 comments: false
 ---
 
-# 시스템 개발 매뉴얼 3
-
 > tf-lite를 통해 머신 러닝 시작하기
 

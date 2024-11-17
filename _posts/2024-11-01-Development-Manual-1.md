@@ -8,8 +8,6 @@ toc: true
 comments: false
 ---
 
-# 시스템 개발 매뉴얼 1
-
 > 라즈베리파이 카메라 인식 및 화면에 표시하기
 
 라즈베리파이에서 전용 모듈을 통한 카메라를 이용하려면 기존의 PC에서 사용하던 방식인 [OpenCV](https://opencv.org/)를 이용하는 것이 아닌, [Picamera2](https://github.com/raspberrypi/picamera2)를 이용해야 한다.
@@ -82,7 +80,7 @@ while True:
 
 나는 이 오류에 대해 일주일 이상을 고민했었고, 답을 찾았다.
 
-기본적으로 최신 버전의 Raspberry PI OS에서는 Global Environment에서의 PIP를 통한 라이브러리 설치를 금지한다.
+기본적으로 최신 버전의 Raspberry Pi OS에서는 Global Environment에서의 PIP를 통한 라이브러리 설치를 금지한다.
 
 그래서 아까 말했던 `python3-picamera2`와 같은 패키지 형태로 라이브러리가 설치되어 있다는 것을 알아내었다.
 
