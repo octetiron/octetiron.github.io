@@ -15,7 +15,7 @@ comments: false
 [MediaPipe](https://github.com/google-ai-edge/mediapipe)는 아래와 같은 기능들을 가지고 있다.
 
 |솔루션|
-|----------|
+|:----------:|
 |LLM Inference API|
 |객체 감지|
 |이미지 분류|
